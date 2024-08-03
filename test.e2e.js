@@ -2,7 +2,7 @@ import { expect, browser } from "@wdio/globals";
 
 browser.addCommand(
   "myCommand",
-  () => {
+  async function () {
     return 1;
   },
   true
