@@ -1,10 +1,19 @@
-export const config = {
+import type { Options } from "@wdio/types";
+export const config: Options.Testrunner = {
   //
   // ====================
   // Runner Configuration
   // ====================
   // WebdriverIO supports running e2e tests as well as unit and component tests.
   runner: "local",
+  autoCompileOpts: {
+    autoCompile: true,
+    tsNodeOpts: {
+      project: "./tsconfig.json",
+      transpileOnly: true,
+    },
+  },
+
   //
   // ==================
   // Specify Test Files
@@ -20,7 +29,7 @@ export const config = {
   // The path of the spec files will be resolved relative from the directory of
   // of the config file unless it's absolute.
   //
-  specs: ["./*.e2e.js"],
+  specs: ["./test/specs/**/*.ts"],
   // Patterns to exclude.
   exclude: [
     // 'path/to/excluded/files'
